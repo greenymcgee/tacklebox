@@ -1,0 +1,9 @@
+{
+  "ignorePaths": [
+    "node_modules/**",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
+    "packages/next-eslint-config/package.json"
+  ],
+  "words": ["greenymcgee", "tacklebox"]
+}

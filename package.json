@@ -1,0 +1,12 @@
+{
+  "name": "tacklebox",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "spellcheck": "cspell \"**/*.*\""
+  },
+  "devDependencies": {
+    "cspell": "^9.6.2"
+  }
+}
