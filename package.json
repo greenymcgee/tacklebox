@@ -1,5 +1,5 @@
 {
-  "name": "tacklebox",
+  "name": "@greenymcgee/tacklebox",
   "private": false,
   "type": "module",
   "packageManager": "pnpm@10.28.2",
