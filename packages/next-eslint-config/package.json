@@ -1,5 +1,5 @@
 {
-  "name": "@greenymcgee/tacklebox/next-eslint-config",
+  "name": "@greenymcgee/next-eslint-config",
   "version": "0.1.0",
   "type": "module",
   "main": "./index.mjs",
