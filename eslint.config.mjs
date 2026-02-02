@@ -5,7 +5,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 export default [
   js.configs.recommended,
   {
-    ignores: ['**/node_modules/**', 'packages/next-eslint-config/index.mjs', 'pnpm-lock.yaml'],
+    ignores: ['**/node_modules/**', 'packages/eslint-config/index.mjs', 'pnpm-lock.yaml'],
   },
   {
     files: ['**/*.{js,mjs}'],
