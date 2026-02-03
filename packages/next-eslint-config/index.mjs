@@ -1,7 +1,5 @@
 import vitest from '@vitest/eslint-plugin';
-import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
-import react from 'eslint-plugin-react';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default [
@@ -9,9 +7,6 @@ export default [
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     plugins: {
       '@vitest': vitest,
-      import: importPlugin,
-      'jsx-a11y': jsxA11y,
-      react,
       'simple-import-sort': simpleImportSort,
     },
     rules: {
