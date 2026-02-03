@@ -1,5 +1,5 @@
 {
-  "name": "@greenymcgee/eslint-config",
+  "name": "@greenymcgee/next-eslint-config",
   "version": "0.1.0",
   "type": "module",
   "main": "./index.mjs",
@@ -9,9 +9,7 @@
   "peerDependencies": {
     "@vitest/eslint-plugin": "^1.0.0",
     "eslint": "^9.0.0",
-    "eslint-plugin-import": "^2.0.0",
-    "eslint-plugin-jsx-a11y": "^6.0.0",
-    "eslint-plugin-react": "^7.0.0",
+    "eslint-config-next": "^16.0.0",
     "eslint-plugin-simple-import-sort": "^12.0.0"
   }
 }
