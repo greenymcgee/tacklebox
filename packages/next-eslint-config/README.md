@@ -12,6 +12,20 @@ npm install -D @greenymcgee/eslint-config
 pnpm add -D @greenymcgee/eslint-config
 ```
 
+### Peer Dependencies
+- @vitest/eslint-plugin
+- eslint
+- eslint-config-next
+- eslint-plugin-simple-import-sort
+
+This script excludes the dependencies included by a Next.js project setup.
+```bash
+# npm
+npm install -D @vitest/eslint-plugin eslint-plugin-simple-import-sort
+
+# pnpm
+pnpm add -D @vitest/eslint-plugin eslint-plugin-simple-import-sort
+```
 
 ## Usage
 

@@ -5,5 +5,9 @@
     "pnpm-workspace.yaml",
     "packages/next-eslint-config/package.json"
   ],
-  "words": ["greenymcgee", "tacklebox"]
+  "words": [
+    "greenymcgee",
+    "tacklebox",
+    "vitest"
+  ]
 }
