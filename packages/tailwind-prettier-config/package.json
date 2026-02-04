@@ -1,0 +1,13 @@
+{
+  "name": "@greenymcgee/tailwind-prettier-config",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "peerDependencies": {
+    "prettier": "^3.8.0",
+    "prettier-plugin-tailwindcss": "^0.7.0"
+  }
+}
