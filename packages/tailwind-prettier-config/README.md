@@ -16,7 +16,7 @@ pnpm add -D @greenymcgee/tailwind-prettier-config prettier prettier-plugin-tailw
 ## Usage
 
 ```javascript
-// .prettierrc.json
+// prettier.config.mjs
 import greenymcgeeConfig from '@greenymcgee/tailwind-prettier-config'
 
 export default {
