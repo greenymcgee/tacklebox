@@ -1,16 +1,22 @@
-import js from '@eslint/js'
-import importPlugin from 'eslint-plugin-import'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import js from '@eslint/js';
+import importPlugin from 'eslint-plugin-import';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import typescriptEslint from 'typescript-eslint';
 
 export default [
   js.configs.recommended,
+  ...typescriptEslint.configs.recommended,
   {
-    ignores: ['**/node_modules/**', 'packages/next-eslint-config/index.mjs', 'pnpm-lock.yaml'],
+    ignores: [
+      '**/node_modules/**',
+      'packages/next-eslint-config/index.mjs',
+      'pnpm-lock.yaml',
+    ],
   },
   {
-    files: ['**/*.{js,mjs}'],
+    files: ['**/*.{js,mjs,ts,tsx}'],
     plugins: {
-      'import': importPlugin,
+      import: importPlugin,
       'simple-import-sort': simpleImportSort,
     },
     rules: {
@@ -18,7 +24,6 @@ export default [
       'import/no-cycle': 'error',
       'import/no-named-as-default': 0,
       'no-console': 'error',
-      'no-unused-vars': 'error',
       'object-shorthand': 'error',
       'require-await': 'error',
       'simple-import-sort/exports': 'error',
@@ -26,4 +31,4 @@ export default [
       'sort-keys': 'error',
     },
   },
-]
+];
