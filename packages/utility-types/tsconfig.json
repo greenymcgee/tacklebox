@@ -1,0 +1,16 @@
+
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "allowJs": false,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
