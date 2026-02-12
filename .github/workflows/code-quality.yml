@@ -29,3 +29,9 @@ jobs:
 
       - name: Run spellcheck
         run: pnpm spellcheck
+
+      - name: Typecheck typescript-utils
+        run: pnpm --filter @greenymcgee/typescript-utils typecheck
+
+      - name: Test typescript-utils
+        run: pnpm --filter @greenymcgee/typescript-utils test:coverage

@@ -8,6 +8,9 @@
     "lint": "eslint .",
     "spellcheck": "cspell \"**/*.*\""
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "cspell": "^9.6.2",
