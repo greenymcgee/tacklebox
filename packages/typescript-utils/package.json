@@ -23,7 +23,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@greenymcgee/utility-types": "^0.1.0",
-    "@types/node": "^25.2.2",
+    "@types/node": "^25.2.3",
     "@vitest/coverage-v8": "^4.0.18",
     "@vitest/eslint-plugin": "^1.6.7",
     "eslint": "^9.39.2",
