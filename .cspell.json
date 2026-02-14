@@ -2,13 +2,12 @@
   "ignorePaths": [
     "node_modules/**",
     "pnpm-lock.yaml",
+    "coverage/**",
     "pnpm-workspace.yaml",
-    "packages/next-eslint-config/package.json"
+    "packages/next-eslint-config/package.json",
+    "packages/typescript-utils/node_modules/**",
+    "packages/typescript-utils/dist/**",
+    "packages/typescript-utils/coverage/**"
   ],
-  "words": [
-    "greenymcgee",
-    "Klass",
-    "tacklebox",
-    "vitest"
-  ]
+  "words": ["greenymcgee", "Klass", "tacklebox", "vitest"]
 }

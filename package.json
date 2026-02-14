@@ -6,18 +6,32 @@
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint .",
-    "spellcheck": "cspell \"**/*.*\""
+    "spellcheck": "cspell \"**/*.*\"",
+    "tsc": "tsc",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc",
+    "validate": "pnpm lint && pnpm spellcheck && pnpm tsc && pnpm test:coverage"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@types/node": "^25.2.2",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/eslint-plugin": "^1.6.7",
     "cspell": "^9.6.2",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript-eslint": "^8.54.0",
+    "vitest": "^4.0.18"
   }
 }
