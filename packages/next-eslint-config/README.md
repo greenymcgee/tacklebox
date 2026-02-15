@@ -4,11 +4,15 @@ My ESLint config for Next.js projects.
 
 ## Installation
 
-```bash
-# npm
-npm install -D @greenymcgee/eslint-config
+### npm
 
-# pnpm
+```bash
+npm install -D @greenymcgee/eslint-config
+```
+
+### pnpm
+
+```bash
 pnpm add -D @greenymcgee/eslint-config
 ```
 
@@ -19,11 +23,16 @@ pnpm add -D @greenymcgee/eslint-config
 - eslint-plugin-simple-import-sort
 
 This script excludes the dependencies included by a Next.js project setup.
-```bash
-# npm
-npm install -D @vitest/eslint-plugin eslint-plugin-simple-import-sort
 
-# pnpm
+### npm
+
+```bash
+npm install -D @vitest/eslint-plugin eslint-plugin-simple-import-sort
+```
+
+### pnpm
+
+```bash
 pnpm add -D @vitest/eslint-plugin eslint-plugin-simple-import-sort
 ```
 

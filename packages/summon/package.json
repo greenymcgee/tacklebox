@@ -1,6 +1,15 @@
 {
   "name": "@greenymcgee/summon",
-  "version": "0.2.0",
+  "version": "0.2.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/greenymcgee/tacklebox.git",
+    "directory": "packages/summon"
+  },
+  "homepage": "https://github.com/greenymcgee/tacklebox/tree/main/packages/summon",
+  "bugs": {
+    "url": "https://github.com/greenymcgee/tacklebox/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

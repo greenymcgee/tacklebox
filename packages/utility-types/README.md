@@ -4,11 +4,15 @@ These are a set of utility types that I use in my projects.
 
 ## Installation
 
-```bash
-# npm
-npm install -D @greenymcgee/utility-types
+### npm
 
-# pnpm
+```bash
+npm install -D @greenymcgee/utility-types
+```
+
+### pnpm
+
+```bash
 pnpm add -D @greenymcgee/utility-types
 ```
 

@@ -1,6 +1,18 @@
 {
   "name": "@greenymcgee/tailwind-prettier-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenymcgee/tacklebox.git",
+    "directory": "packages/tailwind-prettier-config"
+  },
+  "homepage": "https://github.com/greenymcgee/tacklebox/tree/main/packages/tailwind-prettier-config",
+  "bugs": {
+    "url": "https://github.com/greenymcgee/tacklebox/issues"
+  },
+  "files": [
+    "index.mjs"
+  ],
   "type": "module",
   "main": "./index.mjs",
   "exports": {
