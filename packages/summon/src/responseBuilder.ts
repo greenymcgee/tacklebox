@@ -1,4 +1,5 @@
-import { SummonError, SummonResponse } from './types'
+import { SummonError } from './error'
+import { SummonResponse } from './types'
 
 /**
  * An object that is responsible for creating SummonResponses.
@@ -13,14 +14,14 @@ export class SummonResponseBuilder<Data, ErrorData> {
   }
 
   /**
-   * Builds a SummonError using with typed data set to the error.cause.
+   * Builds a SummonError using with typed data set to the response.
    *
-   * @returns {Promise<SummonResponse<ErrorData>>} Promise => SummonResponse
+   * @returns {Promise<SummonError<ErrorData>>} Promise => SummonError
    */
   public async buildError(): Promise<SummonError<ErrorData>> {
-    return new Error(this.response.statusText, {
-      cause: await this.buildResponse<ErrorData>(),
-    }) as SummonError<ErrorData>
+    return new SummonError(this.response.statusText, {
+      response: await this.buildResponse<ErrorData>(),
+    })
   }
 
   /**

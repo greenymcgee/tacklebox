@@ -1,5 +1,5 @@
 export * from './DELETEOptions'
-export * from './error'
+export * from './errorOptions'
 export * from './GETOptions'
 export * from './PATCHOptions'
 export * from './POSTOptions'
