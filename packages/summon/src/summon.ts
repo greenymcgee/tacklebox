@@ -16,7 +16,8 @@ import type {
  *   const { data } = await Summon.get<{ posts: Post[] }>('https://your-site.com/posts')
  *   return data.posts
  * } catch (error) {
- *   logger.error(error.cause, error.message)
+ *   logger.error(error, error.message)
+ *   return error.response.data.message
  * }
  */
 export class Summon {

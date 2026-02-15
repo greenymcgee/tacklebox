@@ -1,5 +1,6 @@
-import { Summon } from '..'
+import { SummonError } from '../error'
 import { SummonResponseBuilder } from '../responseBuilder'
+import { Summon } from '../summon'
 
 const fetchMock = vi.fn(() => Promise.resolve(new Response('{}')))
 
@@ -43,8 +44,8 @@ describe('Summon', () => {
       const builder = new SummonResponseBuilder(new Response(...args))
       const expectedResponse = new Response(...args)
       await expect(result).rejects.toThrow(
-        new Error(expectedResponse.statusText, {
-          cause: await builder.buildResponse(),
+        new SummonError(expectedResponse.statusText, {
+          response: await builder.buildResponse(),
         }),
       )
     })

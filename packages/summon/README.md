@@ -24,16 +24,18 @@ pnpm add @greenymcgee/summon
 ### GET Request
 
 ```ts
-import { Summon } from '@greenymcgee/summon'
+import { Summon, type SummonError } from '@greenymcgee/summon'
 
 async function getPosts() {
   try {
-    const { data } = await Summon.get<{ posts: Post[] }>(
+    // the second generic is the error type for GET requests, and it's the third for any request that has a body
+    const { data } = await Summon.get<{ posts: Post[] }, { message: string }>(
       'https://your-site.com/posts',
     )
     return data.posts
   } catch (error) {
-    logger.error(error.cause, error.message)
+    logger.error(error, error.message)
+    return (error as SummonError<{ message: string }>).response.data.message
   }
 }
 ```
@@ -52,26 +54,7 @@ async function createPost(post: Post) {
     )
     return data.post
   } catch (error) {
-    logger.error(error.cause, error.message)
-  }
-}
-```
-
-### Request With a Typed Error
-
-```ts
-import { Summon } from '@greenymcgee/summon'
-
-async function getPosts() {
-  try {
-    // the second generic is the error type for GET requests, and it's the third for any request that has a body
-    const { data } = await Summon.get<{ posts: Post[] }, { message: string }>(
-      'https://your-site.com/posts',
-    )
-    return data.posts
-  } catch (error) {
-    logger.error(error.cause, error.message)
-    return error.cause.data.message
+    logger.error(error, error.message)
   }
 }
 ```
@@ -82,7 +65,7 @@ Summoner is a class that provides an optional base URL and headers for
 all requests.
 
 ```ts
-import { Summoner } from '@greenymcgee/summon'
+import { Summoner, type SummonError } from '@greenymcgee/summon'
 
 const baseAPI = new Summoner({
   baseURL: 'https://your-site.com',
@@ -92,10 +75,11 @@ const baseAPI = new Summoner({
 async function getPosts() {
   try {
     // makes a GET request to https://your-site.com/posts with the headers saved in the instance
-    const { data } = await baseAPI.get<{ posts: Post[] }>('/posts')
+    const { data } = await baseAPI.get<{ posts: Post[] }, { message: string }>('/posts')
     return data.posts
   } catch (error) {
-    logger.error(error.cause, error.message)
+    logger.error(error, error.message)
+    return (error as SummonError<{ message: string }>).response.data.message
   }
 }
 ```

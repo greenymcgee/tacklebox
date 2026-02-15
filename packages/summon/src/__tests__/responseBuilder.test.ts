@@ -2,12 +2,12 @@ import { SummonResponseBuilder } from '../responseBuilder'
 
 describe('SummonResponseBuilder', () => {
   describe('buildError', () => {
-    it('should build an error and set the cause to a SummonResponse', async () => {
+    it('should build an error and set the response to a SummonResponse', async () => {
       const text = 'text'
       const builder = new SummonResponseBuilder(
         new Response(text, { status: 400, statusText: 'Bad Request' }),
       )
-      expect((await builder.buildError()).cause).toEqual({
+      expect((await builder.buildError()).response).toEqual({
         data: 'text',
         headers: { 'content-type': 'text/plain;charset=UTF-8' },
         ok: false,
