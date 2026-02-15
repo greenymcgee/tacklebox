@@ -86,6 +86,27 @@ interface ActionState {
 }
 ```
 
+### tryCatch
+
+A wrapper for async functions that returns a `Result` object.
+
+```typescript
+import { tryCatch } from '@greenymcgee/typescript-utils'
+
+const { error, response } = await tryCatch<{ data: { id: string } }, Error>(async () => {
+  return await fetch('https://api.example.com/data').then(response => response.json())
+})
+
+if (error) {
+  console.error(error)
+  return
+}
+
+console.log(response.data)
+```
+
+
+
 ## Development
 
 ### Build
