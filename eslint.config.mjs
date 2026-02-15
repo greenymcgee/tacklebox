@@ -9,7 +9,7 @@ export default [
   js.configs.recommended,
   ...typescriptEslint.configs.recommended,
   {
-    ignores: ['**/node_modules/**', 'pnpm-lock.yaml'],
+    ignores: ['**/node_modules/**', 'pnpm-lock.yaml', '**/dist/**'],
   },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
