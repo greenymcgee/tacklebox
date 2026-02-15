@@ -5,6 +5,7 @@ export default defineConfig({
   test: {
     coverage: {
       include: ['packages/'],
+      exclude: ['packages/**/dist/**'],
       provider: 'v8',
       thresholds: {
         branches: 97,

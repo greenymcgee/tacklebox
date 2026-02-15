@@ -1,11 +1,14 @@
 # tacklebox
 
-A set of tools and configurations I like to use.
+A set of tools and configurations I like to take with me when I go fishing.
 
 ## Packages
 
-- [@tacklebox/next-eslint-config](./packages/next-eslint-config) - ESLint flat config for Next.js projects
-- [@tacklebox/tailwind-prettier-config](./packages/tailwind-prettier-config) - Prettier config for TailwindCSS projects
+- [@greenymcgee/next-eslint-config](./packages/next-eslint-config) - ESLint flat config for Next.js projects
+- [@greenymcgee/summon](./packages/summon) - A simple fetch wrapper with type safety and error handling
+- [@greenymcgee/tailwind-prettier-config](./packages/tailwind-prettier-config) - Prettier config for TailwindCSS projects
+- [@greenymcgee/typescript-utils](./packages/typescript-utils) - A collection of TypeScript utilities
+- [@greenymcgee/utility-types](./packages/utility-types) - A simple set of utility types that make working with TypeScript easier
 
 
 ## Development

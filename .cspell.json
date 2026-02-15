@@ -9,5 +9,11 @@
     "packages/typescript-utils/dist/**",
     "packages/typescript-utils/coverage/**"
   ],
-  "words": ["greenymcgee", "Klass", "tacklebox", "vitest"]
+  "words": [
+    "greenymcgee",
+    "Klass",
+    "tacklebox",
+    "unstub",
+    "vitest"
+  ]
 }
