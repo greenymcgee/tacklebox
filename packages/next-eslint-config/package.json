@@ -1,6 +1,18 @@
 {
   "name": "@greenymcgee/next-eslint-config",
-  "version": "0.1.2",
+  "version": "0.1.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenymcgee/tacklebox.git",
+    "directory": "packages/next-eslint-config"
+  },
+  "homepage": "https://github.com/greenymcgee/tacklebox/tree/main/packages/next-eslint-config",
+  "bugs": {
+    "url": "https://github.com/greenymcgee/tacklebox/issues"
+  },
+  "files": [
+    "index.mjs"
+  ],
   "type": "module",
   "main": "./index.mjs",
   "exports": {

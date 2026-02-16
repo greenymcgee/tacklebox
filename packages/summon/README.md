@@ -1,7 +1,7 @@
 # Summon
 
-Summon is a very simple wrapper for fetch that provides type safe requests and
-responses and error handling. It doesn't have any dependencies, and is designed
+Summon is a very simple wrapper for fetch that provides type safe requests,
+responses, and error handling. It doesn't have any dependencies, and is designed
 with simplicity in mind. If you need more complex features, there are other
 fetch wrappers that may be a better fit.
 

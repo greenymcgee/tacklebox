@@ -1,6 +1,24 @@
 {
   "name": "@greenymcgee/utility-types",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenymcgee/tacklebox.git",
+    "directory": "packages/utility-types"
+  },
+  "homepage": "https://github.com/greenymcgee/tacklebox/tree/main/packages/utility-types",
+  "bugs": {
+    "url": "https://github.com/greenymcgee/tacklebox/issues"
+  },
+  "files": [
+    "index.d.ts"
+  ],
   "type": "module",
-  "types": "./index.d.ts"
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.d.ts"
+    }
+  }
 }

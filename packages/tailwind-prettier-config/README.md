@@ -5,11 +5,16 @@ My Prettier config for TailwindCSS projects.
 ## Installation
 
 Install the config and its peer dependencies.
-```bash
-# npm
-npm install -D @greenymcgee/tailwind-prettier-config prettier prettier-plugin-tailwindcss
 
-# pnpm
+### npm
+
+```bash
+npm install -D @greenymcgee/tailwind-prettier-config prettier prettier-plugin-tailwindcss
+```
+
+### pnpm
+
+```bash
 pnpm add -D @greenymcgee/tailwind-prettier-config prettier prettier-plugin-tailwindcss
 ```
 

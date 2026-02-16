@@ -1,6 +1,15 @@
 {
   "name": "@greenymcgee/typescript-utils",
-  "version": "0.1.2",
+  "version": "0.1.7",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenymcgee/tacklebox.git",
+    "directory": "packages/typescript-utils"
+  },
+  "homepage": "https://github.com/greenymcgee/tacklebox/tree/main/packages/typescript-utils",
+  "bugs": {
+    "url": "https://github.com/greenymcgee/tacklebox/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
