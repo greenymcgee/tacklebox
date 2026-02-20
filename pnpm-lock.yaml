@@ -54,8 +54,8 @@ importers:
   packages/next-eslint-config:
     dependencies:
       '@vitest/eslint-plugin':
-        specifier: ^1.6.6
-        version: 1.6.7(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.3)(yaml@2.8.2))
+        specifier: ^1.6.9
+        version: 1.6.9(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.3)(yaml@2.8.2))
       eslint:
         specifier: ^9.39.2
         version: 9.39.2
@@ -1030,6 +1030,19 @@ packages:
 
   '@vitest/eslint-plugin@1.6.7':
     resolution: {integrity: sha512-sd2QJirEscSQk3Pywtelbs7z8RQp1gyF5BfeZVtTHE8y3suyzbAA71NuT9z01uTRMHoCf5p6M2t2WYNJ7m5FlA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      eslint: '>=8.57.0'
+      typescript: '>=5.0.0'
+      vitest: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vitest:
+        optional: true
+
+  '@vitest/eslint-plugin@1.6.9':
+    resolution: {integrity: sha512-9WfPx1OwJ19QLCSRLkqVO7//1WcWnK3fE/3fJhKMAmDe8+9G4rB47xCNIIeCq3FdEzkIoLTfDlwDlPBaUTMhow==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.57.0'
@@ -3470,6 +3483,17 @@ snapshots:
       vitest: 4.0.18(@types/node@25.2.3)(yaml@2.8.2)
 
   '@vitest/eslint-plugin@1.6.7(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.3)(yaml@2.8.2))':
+    dependencies:
+      '@typescript-eslint/scope-manager': 8.55.0
+      '@typescript-eslint/utils': 8.55.0(eslint@9.39.2)(typescript@5.9.3)
+      eslint: 9.39.2
+    optionalDependencies:
+      typescript: 5.9.3
+      vitest: 4.0.18(@types/node@25.2.3)(yaml@2.8.2)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@vitest/eslint-plugin@1.6.9(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.3)(yaml@2.8.2))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.55.0
       '@typescript-eslint/utils': 8.55.0(eslint@9.39.2)(typescript@5.9.3)
