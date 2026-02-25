@@ -6,7 +6,7 @@ export default [
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     plugins: {
-      '@vitest': vitest,
+      vitest,
       'simple-import-sort': simpleImportSort,
     },
     rules: {
@@ -17,7 +17,8 @@ export default [
       'object-shorthand': 'error',
 
       // Vitest rules
-      '@vitest/max-expects': [
+      ...vitest.configs.recommended.rules,
+      'vitest/max-expects': [
         'error',
         {
           max: 2,
