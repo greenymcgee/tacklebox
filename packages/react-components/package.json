@@ -1,6 +1,6 @@
 {
   "name": "@greenymcgee/react-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/greenymcgee/tacklebox.git",
@@ -29,11 +29,11 @@
     "tsup": "^8.5.1"
   },
   "peerDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "date-fns": "^4.1.0",
-    "date-fns-tz": "^3.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "@types/react": ">=18.0.0",
+    "@types/react-dom": ">=18.0.0",
+    "date-fns": ">=4.1.0",
+    "date-fns-tz": ">=3.2.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   }
 }
