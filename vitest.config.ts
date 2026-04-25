@@ -15,7 +15,33 @@ export default defineConfig({
       },
     },
     globals: true,
-    environment: 'node',
+    projects: [
+      {
+        extends: true,
+        test: {
+          name: 'node',
+          environment: 'node',
+          include: ['packages/**/*.{test,spec}.ts'],
+          exclude: [
+            'packages/react-components/**/*.test.tsx',
+            'packages/react-components/**/*.test.ts',
+            '**/node_modules/**',
+          ],
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: 'react-components',
+          environment: 'jsdom',
+          include: [
+            'packages/react-components/**/*.test.tsx',
+            'packages/react-components/**/*.test.ts',
+          ],
+          setupFiles: ['./vitest.react-setup.ts'],
+        },
+      },
+    ],
   },
 })
 
