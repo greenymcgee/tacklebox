@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",
     "module": "ESNext",
     "allowJs": false,
@@ -13,8 +15,9 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "types": ["vitest/globals"]
+    "skipLibCheck": true,
+    "types": ["vitest/globals", "react", "react-dom"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "package/react-components"]
 }

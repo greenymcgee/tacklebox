@@ -1,0 +1,39 @@
+{
+  "name": "@greenymcgee/react-components",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenymcgee/tacklebox.git",
+    "directory": "packages/react-components"
+  },
+  "homepage": "https://github.com/greenymcgee/tacklebox/tree/main/packages/react-components",
+  "bugs": {
+    "url": "https://github.com/greenymcgee/tacklebox/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
