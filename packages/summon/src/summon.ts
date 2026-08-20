@@ -4,11 +4,13 @@ import type {
   SummonGETOptions,
   SummonPATCHOptions,
   SummonPOSTOptions,
+  SummonPUTOptions,
   WithParams,
 } from './types'
+import { stringifyJSON, tryPromise } from './utils'
 
 /**
- * A wrapper for fetch. Includes methods for DELETE, GET, PATCH, and POST
+ * A wrapper for fetch. Includes methods for DELETE, GET, PATCH, POST, and PUT
  * requests.
  *
  * @example
@@ -41,45 +43,56 @@ export class Summon {
     url: string,
     options?: SummonDELETEOptions<Params>,
   ) {
-    return await fetch(url, this.stringifyParams('DELETE', options)).then(
-      async (response) => await this.createResponse<Data, ErrorData>(response),
-    )
+    const params = this.stringifyParams('DELETE', options)
+    const response = await tryPromise(fetch(url, params))
+    return await this.createResponse<Data, ErrorData>(response)
   }
 
   public static async get<Data, ErrorData = unknown>(
     url: string,
     options?: SummonGETOptions,
   ) {
-    return await fetch(url, { method: 'GET', ...options }).then(
-      async (response) => await this.createResponse<Data, ErrorData>(response),
-    )
+    const response = await tryPromise(fetch(url, { method: 'GET', ...options }))
+    return await this.createResponse<Data, ErrorData>(response)
   }
 
   public static async patch<Data, Params, ErrorData = unknown>(
     url: string,
     options?: SummonPATCHOptions<Params>,
   ) {
-    return await fetch(url, this.stringifyParams('PATCH', options)).then(
-      async (response) => await this.createResponse<Data, ErrorData>(response),
-    )
+    const params = this.stringifyParams('PATCH', options)
+    const response = await tryPromise(fetch(url, params))
+    return await this.createResponse<Data, ErrorData>(response)
   }
 
   public static async post<Data, Params, ErrorData = unknown>(
     url: string,
     options?: SummonPOSTOptions<Params>,
   ) {
-    return await fetch(url, this.stringifyParams('POST', options)).then(
-      async (response) => await this.createResponse<Data, ErrorData>(response),
-    )
+    const params = this.stringifyParams('POST', options)
+    const response = await tryPromise(fetch(url, params))
+    return await this.createResponse<Data, ErrorData>(response)
+  }
+
+  public static async put<Data, Params, ErrorData = unknown>(
+    url: string,
+    options?: SummonPUTOptions<Params>,
+  ) {
+    const params = this.stringifyParams('PUT', options)
+    const response = await tryPromise(fetch(url, params))
+    return await this.createResponse<Data, ErrorData>(response)
   }
 
   private static stringifyParams<Params>(
-    method: 'DELETE' | 'PATCH' | 'POST',
+    method: 'DELETE' | 'PATCH' | 'POST' | 'PUT',
     options: WithParams<Params> | undefined,
   ): RequestInit {
     if (!options) return {}
 
     const { body, ...rest } = options
-    return { ...rest, body: JSON.stringify(body), method }
+    const stringified = stringifyJSON(body)
+    if (stringified instanceof Error) throw stringified
+
+    return { ...rest, body: stringified, method }
   }
 }

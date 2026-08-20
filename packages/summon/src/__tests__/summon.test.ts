@@ -71,6 +71,15 @@ describe('Summon', () => {
       const result = await Summon.delete(url)
       expect(result).toEqual(await Summon.createResponse(new Response('{}')))
     })
+
+    it('should throw a SummonError for invalid JSON', async () => {
+      const url = 'http://nothing.no.greeny'
+      const circular: Record<string, unknown> = {}
+      circular.self = circular
+      const result = async () => await Summon.delete(url, { body: circular })
+      await expect(result).rejects.toThrow(SummonError)
+      expect(fetchMock).not.toHaveBeenCalled()
+    })
   })
 
   describe('get', () => {
@@ -108,6 +117,15 @@ describe('Summon', () => {
       const result = await Summon.patch(url)
       expect(result).toEqual(await Summon.createResponse(new Response('{}')))
     })
+
+    it('should throw a SummonError for invalid JSON', async () => {
+      const url = 'http://nothing.no.greeny'
+      const circular: Record<string, unknown> = {}
+      circular.self = circular
+      const result = async () => await Summon.patch(url, { body: circular })
+      await expect(result).rejects.toThrow(SummonError)
+      expect(fetchMock).not.toHaveBeenCalled()
+    })
   })
 
   describe('post', () => {
@@ -129,6 +147,46 @@ describe('Summon', () => {
       const url = 'http://nothing.no.greeny'
       const result = await Summon.post(url)
       expect(result).toEqual(await Summon.createResponse(new Response('{}')))
+    })
+
+    it('should throw a SummonError for invalid JSON', async () => {
+      const url = 'http://nothing.no.greeny'
+      const circular: Record<string, unknown> = {}
+      circular.self = circular
+      const result = async () => await Summon.post(url, { body: circular })
+      await expect(result).rejects.toThrow(SummonError)
+      expect(fetchMock).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('put', () => {
+    it('should call fetch with the url and the method set to PUT and pass the options', async () => {
+      const url = 'http://nothing.no.greeny'
+      const options = {
+        body: { key: 'value' },
+        headers: { 'content-type': 'application/json' },
+      }
+      await Summon.put(url, options)
+      expect(fetchMock).toHaveBeenCalledWith(url, {
+        ...options,
+        body: JSON.stringify(options.body),
+        method: 'PUT',
+      })
+    })
+
+    it('should return a SummonResponse', async () => {
+      const url = 'http://nothing.no.greeny'
+      const result = await Summon.put(url)
+      expect(result).toEqual(await Summon.createResponse(new Response('{}')))
+    })
+
+    it('should throw a SummonError for invalid JSON', async () => {
+      const url = 'http://nothing.no.greeny'
+      const circular: Record<string, unknown> = {}
+      circular.self = circular
+      const result = async () => await Summon.put(url, { body: circular })
+      await expect(result).rejects.toThrow(SummonError)
+      expect(fetchMock).not.toHaveBeenCalled()
     })
   })
 })
