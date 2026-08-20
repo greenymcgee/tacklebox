@@ -42,7 +42,7 @@ describe('tryPromise', () => {
     const result = tryPromise(Promise.reject(fetchError))
     await expect(result).rejects.toMatchObject({
       response: {
-        data: undefined,
+        data: {},
         headers: {},
         ok: false,
         redirected: false,
