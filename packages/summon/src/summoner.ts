@@ -64,6 +64,16 @@ export class Summoner {
     )
   }
 
+  public async put<Data, Params, ErrorType = Error>(
+    pathname: string,
+    options?: SummonPOSTOptions<Params>,
+  ) {
+    return await Summon.put<Data, Params, ErrorType>(
+      this.createURL(pathname),
+      this.createRequest(options),
+    )
+  }
+
   private addPersistedHeadersToOptions<Params>(
     headers: Headers,
     options: SummonRequestOptions<Params>,

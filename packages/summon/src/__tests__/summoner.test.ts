@@ -12,6 +12,7 @@ vi.spyOn(Summon, 'delete')
 vi.spyOn(Summon, 'get')
 vi.spyOn(Summon, 'patch')
 vi.spyOn(Summon, 'post')
+vi.spyOn(Summon, 'put')
 
 beforeEach(() => {
   vi.clearAllMocks()
@@ -70,6 +71,20 @@ describe('Summoner', () => {
       const options = { headers: { accept: 'application/json' } }
       await SUMMONER.post('/pathname', options)
       expect(Summon.post).toHaveBeenCalledWith(
+        `${BASE_OPTIONS.baseURL}/pathname`,
+        {
+          headers: new Headers({ ...BASE_OPTIONS.headers, ...options.headers }),
+        },
+      )
+    })
+  })
+
+  describe('put', () => {
+    it('should call Summon.put with predefined options', async () => {
+      vi.mocked(Summon.put).mockImplementation(vi.fn())
+      const options = { headers: { accept: 'application/json' } }
+      await SUMMONER.put('/pathname', options)
+      expect(Summon.put).toHaveBeenCalledWith(
         `${BASE_OPTIONS.baseURL}/pathname`,
         {
           headers: new Headers({ ...BASE_OPTIONS.headers, ...options.headers }),
