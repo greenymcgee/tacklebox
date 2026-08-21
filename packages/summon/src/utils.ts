@@ -7,7 +7,7 @@ function getOrCreateSummonError(error: unknown, message: string) {
   return new SummonError(isErrorInstance ? error.message : message, {
     cause: isErrorInstance ? error : undefined,
     response: {
-      data: undefined,
+      data: {},
       headers: {},
       ok: false,
       redirected: false,
