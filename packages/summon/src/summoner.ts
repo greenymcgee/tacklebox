@@ -1,4 +1,5 @@
 import { Summon } from './summon'
+import { mergeHeaders } from './summoner.utils'
 import type {
   SummonDELETEOptions,
   SummonerOptions,
@@ -7,6 +8,7 @@ import type {
   SummonPOSTOptions,
   SummonRequestOptions,
 } from './types'
+import type { CommonHeaderType } from './types'
 
 /**
  * An object that takes a set of options to apply to every fetch request.
@@ -16,8 +18,18 @@ import type {
  *
  * // makes a GET request to https://your-site.com/posts
  * const { data } = await baseAPI.get<{ posts: Post[] }>('/posts')
+ *
+ * Default common headers are available to set headers on an instance after
+ * initialization.
+ *
+ * @example
+ * baseApi.defaults.headers.common.Authorization = `Bearer ${cookies.jwt}`
  */
 export class Summoner {
+  public defaults = {
+    headers: { common: {} as Partial<Record<CommonHeaderType, string>> },
+  }
+
   private options: SummonerOptions
 
   constructor(options?: SummonerOptions) {
@@ -78,9 +90,7 @@ export class Summoner {
     headers: Headers,
     options: SummonRequestOptions<Params>,
   ) {
-    new Headers(options.headers).forEach((value, key) => {
-      return headers.set(key, value)
-    })
+    mergeHeaders({ headers, toBeMerged: options.headers })
     return { ...options, headers }
   }
 
@@ -107,7 +117,8 @@ export class Summoner {
   private createRequest<Params>(
     options: SummonRequestOptions<Params> | undefined,
   ) {
-    const { headers } = this
+    const { defaults, headers } = this
+    mergeHeaders({ headers, toBeMerged: defaults.headers.common })
     if (!options) return { headers }
 
     return this.addPersistedHeadersToOptions(headers, options)

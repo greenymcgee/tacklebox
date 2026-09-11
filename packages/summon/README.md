@@ -75,13 +75,23 @@ const baseAPI = new Summoner({
 async function getPosts() {
   try {
     // makes a GET request to https://your-site.com/posts with the headers saved in the instance
-    const { data } = await baseAPI.get<{ posts: Post[] }, { message: string }>('/posts')
+    const { data } = await baseAPI.get<{ posts: Post[] }, { message: string }>(
+      '/posts',
+    )
     return data.posts
   } catch (error) {
     logger.error(error, error.message)
     return (error as SummonError<{ message: string }>).response.data.message
   }
 }
+```
+
+### Defaults
+
+`defaults.headers.common` are available to set headers on an instance after initialization.
+
+```ts
+baseApi.defaults.headers.common.Authorization = `Bearer ${cookies.jwt}`
 ```
 
 ## SummonResponseBuilder
