@@ -7,6 +7,7 @@ import type {
   SummonPOSTOptions,
   SummonRequestOptions,
 } from './types'
+import { CommonHeaderType } from './types/commonHeaderTypes'
 
 /**
  * An object that takes a set of options to apply to every fetch request.
@@ -16,8 +17,18 @@ import type {
  *
  * // makes a GET request to https://your-site.com/posts
  * const { data } = await baseAPI.get<{ posts: Post[] }>('/posts')
+ *
+ * Default common headers are available to set headers on an instance after
+ * initialization.
+ *
+ * @example
+ * baseApi.defaults.headers.common.Authorization = `Bearer ${cookies.jwt}`
  */
 export class Summoner {
+  public defaults = {
+    common: { headers: {} as Record<CommonHeaderType, string> },
+  }
+
   private options: SummonerOptions
 
   constructor(options?: SummonerOptions) {
@@ -107,7 +118,10 @@ export class Summoner {
   private createRequest<Params>(
     options: SummonRequestOptions<Params> | undefined,
   ) {
-    const { headers } = this
+    const { defaults, headers } = this
+    new Headers(defaults.common.headers).forEach((value, key) => {
+      return headers.set(key, value)
+    })
     if (!options) return { headers }
 
     return this.addPersistedHeadersToOptions(headers, options)

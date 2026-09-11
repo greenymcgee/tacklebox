@@ -127,4 +127,68 @@ describe('Summoner', () => {
       })
     })
   })
+
+  describe('defaults.common.headers', () => {
+    it('should default to an empty object', () => {
+      const summoner = new Summoner()
+      expect(summoner.defaults.common.headers).toEqual({})
+    })
+
+    it('should apply common headers to a request made with no options', async () => {
+      vi.mocked(Summon.get).mockImplementation(vi.fn())
+      const summoner = new Summoner(BASE_OPTIONS)
+      summoner.defaults.common.headers.Authorization = 'Bearer token'
+      await summoner.get('/pathname')
+      expect(Summon.get).toHaveBeenCalledWith(
+        `${BASE_OPTIONS.baseURL}/pathname`,
+        {
+          headers: new Headers({
+            ...BASE_OPTIONS.headers,
+            Authorization: 'Bearer token',
+          }),
+        },
+      )
+    })
+
+    it('should apply common headers alongside per-request options', async () => {
+      vi.mocked(Summon.get).mockImplementation(vi.fn())
+      const summoner = new Summoner(BASE_OPTIONS)
+      summoner.defaults.common.headers.Authorization = 'Bearer token'
+      const options = { headers: { accept: 'application/json' } }
+      await summoner.get('/pathname', options)
+      expect(Summon.get).toHaveBeenCalledWith(
+        `${BASE_OPTIONS.baseURL}/pathname`,
+        {
+          headers: new Headers({
+            ...BASE_OPTIONS.headers,
+            Authorization: 'Bearer token',
+            ...options.headers,
+          }),
+        },
+      )
+    })
+
+    it('should let a per-request header override a common header of the same name', async () => {
+      vi.mocked(Summon.get).mockImplementation(vi.fn())
+      const summoner = new Summoner(BASE_OPTIONS)
+      summoner.defaults.common.headers['Content-Type'] = 'text/plain'
+      const options = { headers: { 'content-type': 'application/json' } }
+      await summoner.get('/pathname', options)
+      expect(Summon.get).toHaveBeenCalledWith(
+        `${BASE_OPTIONS.baseURL}/pathname`,
+        { headers: new Headers(options.headers) },
+      )
+    })
+
+    it('should let a common header override an instance header of the same name', async () => {
+      vi.mocked(Summon.get).mockImplementation(vi.fn())
+      const summoner = new Summoner(BASE_OPTIONS)
+      summoner.defaults.common.headers['Content-Type'] = 'text/plain'
+      await summoner.get('/pathname')
+      expect(Summon.get).toHaveBeenCalledWith(
+        `${BASE_OPTIONS.baseURL}/pathname`,
+        { headers: new Headers({ 'content-type': 'text/plain' }) },
+      )
+    })
+  })
 })
